@@ -7,3 +7,9 @@
   justify-content: center;
   background-color: black
 }
+
+.Container {
+  width: 375px;
+  height: 667px; 
+  background-color: ghostwhite;
+}

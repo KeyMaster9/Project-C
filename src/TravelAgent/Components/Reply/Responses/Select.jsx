@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Select = ({value, setValue, options}) => {
+const Select = ({value, setValue, options = []}) => {
 
     return <div className='Selection'>
         <select value={value} onChange={e => setValue(e.target.value)} name="resopnse">

@@ -1,7 +1,6 @@
 import React from 'react';
-import './AbstractMessage.css';
 
-const AbstractMessage = ({ message, className, styles }) => {
+const AbstractMessage = ({ message, className }) => {
 
     const concatClassName = (defaultClassName) => {
         if (className) {
@@ -11,7 +10,7 @@ const AbstractMessage = ({ message, className, styles }) => {
     }
 
     return <div className="MessageContainer">
-        <div className={concatClassName('Message')} style={styles}>{message}</div>
+        <div className={concatClassName('Message')}>{message}</div>
     </div>
 }
 
