@@ -1,11 +1,17 @@
 [
     {
-        "question": "Would you consider visiting any Chinese Communist Party States?"
+        "property": "Visit CCP State",
+        "question": "Would you consider visiting any Chinese Communist Party States?",
+        "responses": ["yes", "definitely", "of course"]
     },
     {
-        "question": "Do you believe that your Social Credit rating is at an acceptable level?"
+        "property": "Is My Social Credit Good",
+        "question": "Do you believe that your Social Credit rating is at an acceptable level?",
+        "responses": ["yes", "definitely", "of course"]
     },
     {
-        "question": "On a scale of 10-10: How much do you on the noble ChairMan Xi Jinping?"
+        "property": "ChairMan Xi Jinping",
+        "question": "On a scale of 10-10: How much do you on the noble ChairMan Xi Jinping?",
+        "responses": ["10", "10", "10"]
     }
 ]
