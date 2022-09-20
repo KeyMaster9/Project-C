@@ -5,6 +5,7 @@ export default ({ message }) => <AbstractMessage
     message={message}
     styles={{
         float: 'left',
+        textAlign: 'left',
         backgroundColor: '#999',
         borderColor: '#999',
         borderRadius: '1rem 1rem 1rem 0rem',

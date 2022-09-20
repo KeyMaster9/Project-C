@@ -8,6 +8,7 @@ export default ({ message }) => <AbstractMessage
         backgroundColor: '#179CDD',
         borderColor: '#179CDD',
         borderRadius: '1rem 1rem 0rem 1rem',
-        color: 'ghostwhite'
+        color: 'ghostwhite',
+        textAlign: 'right'
     }}
 />
