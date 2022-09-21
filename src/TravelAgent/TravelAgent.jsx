@@ -48,14 +48,19 @@ const TravelAgent = () => {
             const results = searchLocations(replyValues).map(location => {
                 return {
                     ...location,
-                    question: `Would you like to visit ${location.location}`,
+                    question: `Would you like to visit ${location.City} - ${location.Country}?`,
                     responses: suggestionResponses
                 }
             })
-            console.log(results, 'suggestions')
-            setSuggestions(results);
-            setResultsFound(true);
-            setChatHistory([...chatHistory, <Info message='Locations Found!' />]);
+            if(results.length > 0) {
+                setSuggestions(results);
+                setResultsFound(true);
+                setChatHistory([...chatHistory, <Info message={`${results.length} Locations Found!`} />]);
+            } else {
+                setChatHistory([...chatHistory, <Info message='No holiday locations could be found using your requirements. Try changing your requirements or setting less important requirements to "No Preference"' />]);
+                setQuestionQueue(questions);
+                setReplyValues({});
+            }
         }
         // eslint-disable-next-line
     }, [questionQueue])
