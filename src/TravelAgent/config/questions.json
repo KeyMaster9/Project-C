@@ -6,7 +6,7 @@
             "Cold",
             "Mild",
             "Hot",
-            "N/A"
+            "No Preference"
         ]
     },
     {
@@ -15,7 +15,7 @@
         "responses": [
             "Active",
             "Lazy",
-            "N/A"
+            "No Preference"
         ]
     },
     {
@@ -25,17 +25,17 @@
             "City",
             "Mountain",
             "Sea",
-            "N/A"
+            "No Preference"
         ]
     },
     {
         "property": "StarRating",
         "question": "Do you wish to have a minimum hotel star rating",
         "responses": [
-            3,
-            4,
-            5,
-            "N/A"
+            "3",
+            "4",
+            "5",
+            "No Preference"
         ]
     },
     {
@@ -49,18 +49,20 @@
             "Australia",
             "Europe",
             "North America",
-            "N/A"
+            "No Preference"
         ]
     },
     {
         "property": "PricePerPerNight",
         "question": "Is there a limit as to how much you would like to spend per nights stay?",
         "responses": [
-            50,
-            100,
-            150,
-            250,
-            "N/A"
+            "50",
+            "75",
+            "100",
+            "125",
+            "250",
+            "300",
+            "No Preference"
         ]
     }
 ]
