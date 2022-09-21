@@ -1,17 +1,66 @@
 [
     {
-        "property": "Visit CCP State",
-        "question": "Would you consider visiting any Chinese Communist Party States?",
-        "responses": ["yes", "definitely", "of course"]
+        "property": "TempRating",
+        "question": "Please pick your prefered temperature",
+        "responses": [
+            "Cold",
+            "Mild",
+            "Hot",
+            "N/A"
+        ]
     },
     {
-        "property": "Is My Social Credit Good",
-        "question": "Do you believe that your Social Credit rating is at an acceptable level?",
-        "responses": ["yes", "definitely", "of course"]
+        "property": "Category",
+        "question": "Do you prefer active or lazy holdays?",
+        "responses": [
+            "Active",
+            "Lazy",
+            "N/A"
+        ]
     },
     {
-        "property": "ChairMan Xi Jinping",
-        "question": "On a scale of 10-10: How much do you on the noble ChairMan Xi Jinping?",
-        "responses": ["10", "10", "10"]
+        "property": "Location",
+        "question": "What type of holiday location would you prefer?",
+        "responses": [
+            "City",
+            "Mountain",
+            "Sea",
+            "N/A"
+        ]
+    },
+    {
+        "property": "StarRating",
+        "question": "Do you wish to have a minimum hotel star rating",
+        "responses": [
+            3,
+            4,
+            5,
+            "N/A"
+        ]
+    },
+    {
+        "property": "Continent",
+        "question": "Is there a particular continent you would like to visit?",
+        "responses": [
+            "Africa",
+            "Antarctica",
+            "Arctic",
+            "Asia",
+            "Australia",
+            "Europe",
+            "North America",
+            "N/A"
+        ]
+    },
+    {
+        "property": "PricePerPerNight",
+        "question": "Is there a limit as to how much you would like to spend per nights stay?",
+        "responses": [
+            50,
+            100,
+            150,
+            250,
+            "N/A"
+        ]
     }
 ]
