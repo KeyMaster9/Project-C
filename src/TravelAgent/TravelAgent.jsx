@@ -46,6 +46,7 @@ const TravelAgent = () => {
     useEffect(() => {
         if (questionQueue.length === 0 && !resultsFound) {
             const results = searchLocations(replyValues).map(location => {
+                console.log(`${location.StarRating} Stars: ${location.PricePerPerNight}$`)
                 return {
                     ...location,
                     question: `Would you like to visit ${location.City} - ${location.Country}?`,
