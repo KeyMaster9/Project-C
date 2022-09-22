@@ -10,6 +10,7 @@ import './TravelAgent.css'
 
 const TravelAgent = () => {
     const suggestionResponses = ['More Information', "Next"];
+    const locationResponses = ['Thank you', 'Next'];
 
     const [questionQueue, setQuestionQueue] = useState(questions);
     const activeQuestion = useMemo(() => questionQueue[0], [questionQueue]);
@@ -22,9 +23,26 @@ const TravelAgent = () => {
     const [chatHistory, setChatHistory] = useState([<Info message="Start of chat" />]);
 
     const onReply = useCallback((value, question) => {
-        if (question?.suggestion) {
-            const [, ...rest] = suggestions;
-            setSuggestions(rest);
+        if (suggestion) {
+            if (value === suggestionResponses[0]) {
+                const [current, ...rest] = suggestions;
+                const { City, Country, HotelName, HolidayRefence, PricePerPerNight, StarRating } = suggestion;
+                setSuggestions([{
+                    ...current,
+                    question: `Details of holiday in: \n 
+                    ${City ? City + ' - ' + Country : Country}:\n
+                    Holiday Reference: ${HolidayRefence},\n
+                    Hotel Name: ${HotelName},\n
+                    Price Per Night: ${PricePerPerNight},\n
+                    Star Rating: ${StarRating}`,
+                    responses: locationResponses
+                }, rest])
+            } else if (value === locationResponses[0]) {
+                console.log('saved');
+            } else {
+                const [, ...rest] = suggestions;
+                setSuggestions(rest);
+            }
         } else {
             setReplyValues({
                 ...replyValues,
@@ -34,7 +52,7 @@ const TravelAgent = () => {
             setQuestionQueue(rest);
         }
         setChatHistory([...chatHistory, <Response message={value} />]);
-    }, [chatHistory, questionQueue, replyValues, setQuestionQueue, setChatHistory, setReplyValues, suggestions])
+    }, [chatHistory, questionQueue, replyValues, setQuestionQueue, setChatHistory, setReplyValues, suggestions, suggestion, locationResponses, suggestionResponses])
 
     useEffect(() => {
         if (activeQuestion) {
@@ -46,14 +64,13 @@ const TravelAgent = () => {
     useEffect(() => {
         if (questionQueue.length === 0 && !resultsFound) {
             const results = searchLocations(replyValues).map(location => {
-                console.log(`${location.StarRating} Stars: ${location.PricePerPerNight}$`)
                 return {
                     ...location,
                     question: `Would you like to visit ${location.City} - ${location.Country}?`,
                     responses: suggestionResponses
                 }
             })
-            if(results.length > 0) {
+            if (results.length > 0) {
                 setSuggestions(results);
                 setResultsFound(true);
                 setChatHistory([...chatHistory, <Info message={`${results.length} Locations Found!`} />]);
@@ -67,7 +84,8 @@ const TravelAgent = () => {
     }, [questionQueue])
 
     useEffect(() => {
-        if(suggestion) {
+        if (suggestion) {
+            console.log(suggestion, 'suggestion')
             setChatHistory([...chatHistory, <Question message={suggestion.question} />])
         }
         // eslint-disable-next-line

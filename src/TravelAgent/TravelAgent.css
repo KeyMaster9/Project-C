@@ -41,6 +41,11 @@
     color: var(--secondary);
 }
 
+.Message p {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
 .Message.Info {
     border: none;
     margin: 0.5rem auto;
