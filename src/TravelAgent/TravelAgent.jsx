@@ -9,7 +9,7 @@ import questions from './config/questions.json'
 import './TravelAgent.css'
 
 const TravelAgent = () => {
-    const suggestionResponses = ['Yes!', "Next Please"];
+    const suggestionResponses = ['More Information', "Next"];
 
     const [questionQueue, setQuestionQueue] = useState(questions);
     const activeQuestion = useMemo(() => questionQueue[0], [questionQueue]);
