@@ -13,7 +13,7 @@ const Reply = ({ question, onSend: submit }) => {
 
     return <div className="Reply">
         <Select value={value} setValue={setValue} options={question?.responses} />
-        <Send onSubmit={onSubmit} />
+        <Send onSubmit={onSubmit} isDisabled={!value} />
     </div>
 }
 

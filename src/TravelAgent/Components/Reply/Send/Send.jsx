@@ -1,9 +1,9 @@
 import React from 'react';
 import { AiOutlineSend } from 'react-icons/ai'
 
-const Send = ({ onSubmit }) => {
+const Send = ({ onSubmit, isDisabled }) => {
     return <div
-        className='Send'
+        className={`Send ${isDisabled ? 'disabled' : ''}`}
         style={{ margin: '0 auto', display: 'block' }}
         onClick={onSubmit}
     >

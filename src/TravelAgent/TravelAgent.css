@@ -1,9 +1,18 @@
+:root {
+    --primary: #179CDD;
+    --primaryAlt: #72bce0;
+    --primaryText: ghostwhite;
+    --secondary: #999;
+    --secondaryText: black;
+    --background: ghostwhite;
+}
+
 .TravelAgent {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: ghostwhite;
+    background-color: var(--background);
 }
 
 .Chat {
@@ -25,11 +34,11 @@
     max-width: 80%;
     min-height: 1rem;
     padding: 0.5rem;
-    border: 1px solid #999;
+    border: 1px solid var(--secondary);
     border-radius: 1rem;
     margin: 0.5rem 1rem 0rem;
     text-align: center;
-    color: #999;
+    color: var(--secondary);
 }
 
 .Message.Info {
@@ -40,18 +49,18 @@
 .Message.Question {
     float: left;
     text-align: left;
-    background-color: #999;
-    border-color: #999;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
     border-radius: 1rem 1rem 1rem 0rem;
-    color: black;
+    color: var(--secondaryText);
 }
 
 .Message.Response {
     float: right;
-    background-color: #179CDD;
-    border-color: #179CDD;
+    background-color: var(--primary);
+    border-color: var(--primary);
     border-radius: 1rem 1rem 0rem 1rem;
-    color: ghostwhite;
+    color: var(--primaryText);
     text-align: right;
 }
 
@@ -59,7 +68,7 @@
     display: flex;
     align-items: stretch;
     justify-content: center;
-    border: 1px solid #999;
+    border: 1px solid var(--secondary);
     padding: 5px;
 }
 
@@ -74,14 +83,14 @@
 .Reply .Selection select {
     width: 100%;
     height: 100%;
-    border: 1px solid #999;
+    border: 1px solid var(--secondary);
     border-radius: 5px;
-    background-color: ghostwhite;
+    background-color: var(--background);
 }
 
 .Send {
-    background-color: #179cdd;
-    color: ghostwhite;
+    background-color: var(--primary);
+    color: var(--primaryText);
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 50%;
@@ -91,4 +100,8 @@
     flex-grow: 0;
     flex-shrink: 0;
     cursor: pointer;
+}
+
+.Send.disabled {
+    background-color: var(--primaryAlt);
 }
