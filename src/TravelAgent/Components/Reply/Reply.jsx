@@ -23,8 +23,8 @@ const Reply = ({ question, onSend: submit, action }) => {
 
     const responseProps = { value: value, setValue: setValue, options: question?.responses};
 
-    console.log(question, 'question')
-    console.log(question.responses, 'responses')
+  //  console.log(question, 'question')
+   // console.log(question.responses, 'responses')
     return <div className="Reply">
         {question.responses.length >= 3 ? <Select {...responseProps} /> : <Buttons {...responseProps} />}
         <Send onSubmit={onSubmit} isDisabled={!value} action={controlledAction}/>

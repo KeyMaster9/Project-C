@@ -27,16 +27,17 @@ const TravelAgent = () => {
             setIsComplete(false);
             setQuestionQueue(questions);
             setResultsFound(false);
+            console.log('D');
             setSuggestions([]);
             setReplyValues({});
             setChatHistory([{ type: 'Notification', message: 'Start of chat' }]);
-        } 
+        }
     }, [])
 
     const downloadChatLog = () => {
         const e = document.createElement('a');
         const file = new Blob(chatHistory.map(msg => `${msg.type}: ${msg.message}\n\n`), { type: 'text/plain' });
-        console.log([...chatHistory])
+       // console.log([...chatHistory])
         e.href = URL.createObjectURL(file);
         e.download = "chatlog.txt";
         document.body.appendChild(e);
@@ -62,6 +63,7 @@ const TravelAgent = () => {
         if (value === suggestionResponses[0]) {
             const [, ...rest] = suggestions;
             const { City, Country, HotelName, HolidayRefence, PricePerPerNight, StarRating } = suggestion;
+            console.log('D');
             setSuggestions([
                 {
                     ...suggestion,
@@ -76,18 +78,28 @@ const TravelAgent = () => {
                 ...rest
             ]);
         } else if (value === locationResponses[0]) {
+            console.log('B');
             setSuggestions([]);
             setIsComplete(true);
-            setChatHistory([...chatHistory, {type: 'Notification', message: 'End Of Chat'}])
+            setChatHistory([...chatHistory, { type: 'Notification', message: 'End Of Chat' }])
 
         } else {
             const [, ...rest] = suggestions;
-            setSuggestions(rest);
+            if (rest.length > 0) {
+                console.log('A');
+                setSuggestions(rest);
+                console.log(suggestion)
+            } else {
+                setChatHistory([...chatHistory, { type: 'Notification', message: 'No holiday locations could be found using your requirements. Try changing your requirements or setting less important requirements to "No Preference"' }]);
+                setQuestionQueue(questions);
+                setResultsFound(false);
+                setSuggestions(rest);
+            }
         }
         setChatHistory([...chatHistory, { type: 'User', message: value }]);
     }, [suggestions, suggestion, setSuggestions, setIsComplete, chatHistory, setChatHistory]);
 
-    
+
 
     useEffect(() => {
         if (activeQuestion) {
@@ -106,6 +118,7 @@ const TravelAgent = () => {
                 }
             })
             if (results.length > 0) {
+                console.log('C');
                 setSuggestions(results);
                 setResultsFound(true);
                 setChatHistory([...chatHistory, { type: 'Notification', message: `${results.length} Locations Found!` }]);
@@ -121,16 +134,16 @@ const TravelAgent = () => {
     useEffect(() => {
         if (suggestion) {
             setChatHistory([...chatHistory, { type: 'Bot', message: suggestion.question }])
-            console.log(suggestion, 'suggestion')
+           // console.log(suggestion, 'suggestion')
         }
         // eslint-disable-next-line
     }, [suggestion])
 
     return <div className="TravelAgent">
         <Chat messages={chatHistory} />
-        {activeQuestion && <Reply question={activeQuestion} onSend={onReply} />}
+        {questionQueue.length > 0 ? <Reply question={activeQuestion} onSend={onReply} /> : null}
         {suggestion && <Reply question={suggestion} onSend={onSuggestionReply} />}
-        {isComplete && <Reply question={{ responses: endResponses }} onSend={onCompleteReply} action={[0, downloadChatLog]}/>}
+        {isComplete ? <Reply question={{ responses: endResponses }} onSend={onCompleteReply} action={[0, downloadChatLog]} /> : null}
     </div>
 }
 

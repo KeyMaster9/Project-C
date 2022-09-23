@@ -11,12 +11,12 @@ const Chat = ({ messages = [<Info message='Info message' />, <Question message='
     }, [messages])
 
     return <div className="Chat">
-        {messages.map(msg => {
+        {messages.map((msg, i) => {
             const { type, message } = msg;
             switch (type) {
-                case 'Notification': return <Info message={message} />;
-                case 'User': return <Response message={message} />;
-                case 'Bot': return <Question message={message} />;
+                case 'Notification': return <Info key={i} message={message} />;
+                case 'User': return <Response key={i} message={message} />;
+                case 'Bot': return <Question key={i} message={message} />;
                 default: break;
             } return null;
         })}

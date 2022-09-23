@@ -4,6 +4,7 @@ const Buttons = ({ value, setValue, options = [] }) => {
 
     return <div className='Buttons'>
         {options.map(option => <button
+            key={option}
             className={value === option ? 'active' : ''}
             onClick={() => setValue(option)}
         >
