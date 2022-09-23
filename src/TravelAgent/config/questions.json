@@ -11,7 +11,7 @@
     },
     {
         "property": "Category",
-        "question": "Do you prefer active or lazy holdays?",
+        "question": "Do you prefer active or lazy holidays?",
         "responses": [
             "Active",
             "Lazy",
