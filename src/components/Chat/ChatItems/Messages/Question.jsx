@@ -1,7 +1,9 @@
 import React from 'react';
 import AbstractMessage from '../AbstractMessage';
 
-export default ({ message }) => <AbstractMessage
+const Question = ({ message }) => <AbstractMessage
     message={message}
     className='Question'
 />
+
+export default Question;
