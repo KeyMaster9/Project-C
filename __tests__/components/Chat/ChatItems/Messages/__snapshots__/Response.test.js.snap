@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a TravelAgent Component 1`] = `
+<div
+  className="MessageContainer"
+>
+  <div
+    className="Message Response"
+  >
+    <p>
+      mock response message
+    </p>
+  </div>
+</div>
+`;

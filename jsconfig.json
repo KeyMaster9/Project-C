@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "jsx": "react",
+        "paths": {
+            "#containers/*": [
+                "src/containers/*"
+            ],
+            "#helpers/*": [
+                "src/helpers/*"
+            ],
+            "#components/*": [
+                "src/components/*"
+            ],
+            "#config/*": [
+                "src/config/*"
+            ]
+        }
+    }
+}

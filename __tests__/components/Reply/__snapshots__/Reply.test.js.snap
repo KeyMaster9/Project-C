@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a TravelAgent Component 1`] = `
+<div
+  className="Reply"
+>
+  <span>
+    {"options":["1","2"]}
+  </span>
+  <span>
+    {"isDisabled":true}
+  </span>
+</div>
+`;
+
+exports[`should render a TravelAgent Component 2`] = `
+<div
+  className="Reply"
+>
+  <span>
+    {"options":["1","2","3"]}
+  </span>
+  <span>
+    {"isDisabled":true}
+  </span>
+</div>
+`;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a TravelAgent Component 1`] = `
+<div
+  className="Selection"
+>
+  <select
+    name="response"
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value=""
+    >
+      Select...
+    </option>
+    <option
+      value="first option"
+    >
+      first option
+    </option>
+    <option
+      value="next option"
+    >
+      next option
+    </option>
+  </select>
+</div>
+`;
